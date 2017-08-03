@@ -1,4 +1,12 @@
-<div ng-controller="RoomCtrl">
-    <h1>Home Page</h1>
-    <div class="chatrooms" ng-repeat="room in chatrooms">{{ room.$value }} </div>
+<div>
+    <h1>Bloc Chat</h1>    
+    
+    <button type="button" class="btn btn-default" ng-click="room.open()">New Room</button>
+    
+    <br />
+    
+    <br />
+    
+    <div class="chatrooms" ng-repeat="room in room.chatrooms">{{ room.$value }} </div>
+    
 </div>

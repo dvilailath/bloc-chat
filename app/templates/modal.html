@@ -1,0 +1,28 @@
+<div>
+    <div class="modalRoom">
+        <form class="createRoomForm">
+            
+            <h3>{{ modal.createRoomForm.headerText }}</h3>
+            
+            <label>{{ modal.createRoomForm.roomText }}</label> 
+            
+            <br />
+            
+            <br />
+            
+            <input type="text" ng-model="newRoom" />
+            
+            <br />    
+            
+            <br />
+            
+            <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+        
+            <button class="btn btn-primary" type="submit" ng-click="modal.createroom(newRoom)">Create Room</button>
+        
+        </form>
+        
+        
+    </div>
+</div>
+
