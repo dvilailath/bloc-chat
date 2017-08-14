@@ -1,5 +1,5 @@
 (function() {
-    function RoomCtrl($uibModal, Room) {
+    function RoomCtrl($uibModal, Room, Message) {
         
         this.chatrooms = Room.all;
         
@@ -11,10 +11,20 @@
                 controllerAs: 'modal'
             }
         )};
+        
+        this.roomValue = "Welcome to Bloc Chat";
+        
+        this.setChatRooms = function(roomNumber, roomKey) {
+            this.roomValue = roomNumber;
+            this.roomKey = roomKey;
+            this.msg = Message.getByRoomId(this.roomKey);
+            console.log(this.msg);
+        };
+        
 
     }
     
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['$uibModal', 'Room', RoomCtrl]);
+        .controller('RoomCtrl', ['$uibModal', 'Room', 'Message', RoomCtrl]);
 })();

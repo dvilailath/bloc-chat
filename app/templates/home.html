@@ -1,4 +1,4 @@
-<div>
+<div class="sidebar">
     <h1>Bloc Chat</h1>    
     
     <button type="button" class="btn btn-default" ng-click="room.open()">New Room</button>
@@ -7,6 +7,11 @@
     
     <br />
     
-    <div class="chatrooms" ng-repeat="room in room.chatrooms">{{ room.$value }} </div>
+    <div class="chatrooms" ng-repeat="room in room.chatrooms">
+        <a ng-click="$parent.room.setChatRooms(room.$value, room.$id)">{{ room.$value }}</a>
+    </div>
     
 </div>
+
+<div class="container" ng-include="'/templates/message.html'">
+</div> 
