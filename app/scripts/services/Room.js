@@ -7,12 +7,8 @@
     Room.all = rooms;
     
     Room.add = function(room) {
-        rooms.$add(room).then(function(ref) {
-            var id = ref.key;
-            console.log("added record with id " + id);
-            rooms.$indexFor(id);
-        });//Use the firebase method $add here
-    } 
+        rooms.$add(room);
+    }; 
 
     return Room;
   }

@@ -1,16 +1,30 @@
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
 body {
     margin: 0;
 }
 
 .sidebar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 25%;
-    background-color: #f1f1f1;
     position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 20%;
     height: 100%;
+    background-color: darkgrey;
     overflow: auto;
+}
+
+.sidebar h3 {
+    padding-left: 10px;
+    margin-bottom: 5px;
+
+}
+
+.sidebar .newroom {
+    margin: 0 15px;
 }
 
 .chatrooms a{
@@ -28,11 +42,36 @@ body {
 .chatrooms a:hover:not(.active) {
     background-color: #555;
     color: white;
+    cursor: pointer;
 }
 
 
 .container {
-    margin-left:25%;
-    padding:1px 16px;
-    height:1000px;
+    position: fixed;
+    top: 0px;
+    left: 250px;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    overflow: auto;
+}
+
+.container .username {
+    font-weight: bold;
+}
+
+.container .time {
+    float: right;
+    padding-right: 100px;
+}
+
+
+.container .username .time {
+    display: inline-block;
+}
+*/
+.container .usermsg {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
 }

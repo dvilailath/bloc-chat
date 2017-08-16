@@ -1,30 +1,33 @@
 (function() {
-    function RoomCtrl($uibModal, Room, Message) {
+    function RoomCtrl($uibModal, $cookies, Room, Message) {
         
         this.chatrooms = Room.all;
+        
+        this.roomValue = null;
+        
+        this.roomId = null;
+        
+        this.currentUser = $cookies.get('blocChatCurrentUser');
         
         this.open = function() {
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: '/templates/modal.html',
                 controller: 'ModalCtrl',
-                controllerAs: 'modal'
+                controllerAs: 'modal',
+                backdrop: 'static'
             }
         )};
         
-        this.roomValue = "Welcome to Bloc Chat";
-        
-        this.setChatRooms = function(roomNumber, roomKey) {
-            this.roomValue = roomNumber;
-            this.roomKey = roomKey;
-            this.msg = Message.getByRoomId(this.roomKey);
-            console.log(this.msg);
+        this.setCurrentRoom = function(room, roomId) {
+            this.roomValue = room;
+            this.roomId = roomId
+            this.messages = Message.getByRoomId(this.roomId)
         };
         
-
     }
     
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['$uibModal', 'Room', 'Message', RoomCtrl]);
+        .controller('RoomCtrl', ['$uibModal', '$cookies','Room', 'Message', RoomCtrl]);
 })();

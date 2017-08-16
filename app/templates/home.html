@@ -1,17 +1,21 @@
 <div class="sidebar">
-    <h1>Bloc Chat</h1>    
+    <h3>Bloc Chat</h3>    
     
-    <button type="button" class="btn btn-default" ng-click="room.open()">New Room</button>
-    
-    <br />
+    <button type="button" class="newroom" data-toggle="modal" data-target="#myModal" ng-click="room.open()">New Room</button>
     
     <br />
     
     <div class="chatrooms" ng-repeat="room in room.chatrooms">
-        <a ng-click="$parent.room.setChatRooms(room.$value, room.$id)">{{ room.$value }}</a>
+        <a ng-click="$parent.room.setCurrentRoom(room.$value, room.$id)">{{ room.$value }}</a>
     </div>
     
 </div>
 
-<div class="container" ng-include="'/templates/message.html'">
-</div> 
+<div class="container">
+    <h3>{{ room.roomValue }}</h3>
+    <div ng-repeat="message in room.messages">
+        <div class="username">{{ message.username }}</div>
+        <div class="time">{{ message.sentAt }}</div>
+        <div class="usermsg">{{ message.content }}</div>
+    </div>
+</div>

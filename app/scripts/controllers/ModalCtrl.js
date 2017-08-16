@@ -1,5 +1,5 @@
 (function() {
-    function ModalCtrl($uibModalInstance, Room) {
+    function ModalCtrl($uibModalInstance, $cookies, Room) {
 
         this.createRoomForm = {
             headerText: "Create New Room",
@@ -16,9 +16,15 @@
             return Room.add(newRoom);
         };
         
+        this.setUsername = function () {
+            $cookies.put('blocChatCurrentUser', this.username);
+            console.log(this.username);
+            $uibModalInstance.close();
+        };
+        
     };
     
     angular
         .module('blocChat')
-        .controller('ModalCtrl', ['$uibModalInstance', 'Room', ModalCtrl]);
+        .controller('ModalCtrl', ['$uibModalInstance', '$cookies', 'Room', ModalCtrl]);
 })();
