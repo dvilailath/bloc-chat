@@ -21,8 +21,23 @@
         
         this.setCurrentRoom = function(room, roomId) {
             this.roomValue = room;
-            this.roomId = roomId
+            this.roomId = roomId;
             this.messages = Message.getByRoomId(this.roomId)
+        };
+        
+        this.sendMessage = function() {
+            
+            this.newMessage.roomId = this.roomId;
+            
+            console.log(this.roomId);
+            
+            this.newMessage.username = this.currentUser;
+            
+            console.log(this.newMessage);
+            
+            Message.send(this.newMessage);
+            
+            
         };
         
     }

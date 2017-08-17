@@ -13,7 +13,7 @@
     }
     console.log(currentUser);
     // using remove to delete username after refresh
-    $cookies.remove('blocChatCurrentUser');
+    //$cookies.remove('blocChatCurrentUser');
   }
 
   angular

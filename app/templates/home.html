@@ -15,7 +15,14 @@
     <h3>{{ room.roomValue }}</h3>
     <div ng-repeat="message in room.messages">
         <div class="username">{{ message.username }}</div>
-        <div class="time">{{ message.sentAt }}</div>
+        <div class="time">{{ message.sentAt | date:'medium'}}</div>
         <div class="usermsg">{{ message.content }}</div>
     </div>
+</div>
+
+<div class="sendmsg">
+    <form>Enter text here:
+        <input type="text" class="message-box" ng-model="room.newMessage.content"><button class="btn-md" type="button" ng-click="room.sendMessage()">
+        Submit
+        </button></form>
 </div>
